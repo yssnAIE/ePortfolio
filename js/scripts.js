@@ -2,6 +2,15 @@ import * as THREE from "three";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import planeteTexture from "../img/planeteTexture.png";
 
+let container = document.getElementById("container");
+let page = document.getElementById("page");
+let closeBtn = document.getElementById("close");
+
+
+page.style.display = 'none';
+closeBtn.addEventListener('click', cacherPage);
+container.addEventListener('click', afficherPage);
+
 //création du renderer
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -12,7 +21,7 @@ renderer.setClearColor(0x000000, 0);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 
-document.body.appendChild(renderer.domElement);
+container.appendChild(renderer.domElement);
 //création de la scène
 const scene = new THREE.Scene();
 
@@ -45,9 +54,6 @@ let sphereMaterial = new THREE.MeshBasicMaterial({
 let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 scene.add(sphere);
 
-document.body.addEventListener('click', function () {
-    backAnumation();
-});
 
 let direction = 'up';
 
@@ -55,7 +61,7 @@ function backAnumation() {
     //https://codepen.io/nskrgv/pen/XpOBPM
 }
 function animate() { 
-    sphere.rotateY(0.00001);
+    /*sphere.rotateY(0.00001);
     // Demande l'animation de la prochaine frame
     requestAnimationFrame(animate);
 
@@ -70,9 +76,21 @@ function animate() {
         if (sphere.position.y < 0) {
             direction = 'up';
         }
-    }
+    }*/
 
     // Rendu de la scène
     renderer.render(scene, camera);
 }
 renderer.setAnimationLoop(animate);
+
+function cacherPage() {
+    page.style.display = 'none';
+}
+
+function afficherPage() {
+    page.style.animationName ="slidein";
+    page.style.display = 'block';
+    page.style.animationName = 'none';
+    void page.offsetWidth;
+    page.style.animationName ="slidein";
+}

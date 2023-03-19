@@ -1,5 +1,42 @@
 body {
+    position: relative;
     margin: 0;
     background: linear-gradient(to top, #bfc5eb, #748be4);
     background: linear-gradient(to top, #313659, #060b20);
+}
+
+
+
+#page{
+    background-color: rgb(134, 231, 240);
+    width: 40%;
+    height: 95%;
+    margin: 5px 5px 0px 5px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 5px solid;
+    border-color: rgb(40, 215, 231);
+    border-radius: 10px;
+    animation-duration: 1s;
+    /*
+    animation-name: slidein;*/
+}
+
+.cache {
+    visibility: hidden;
+}
+
+  
+@keyframes slidein {
+    
+    from {
+        visibility: visible;
+        margin-left: -200px;
+    }
+
+    to {
+        visibility: visible;
+        margin-left: 0%;
+    }
 }
