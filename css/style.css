@@ -8,19 +8,30 @@ body {
 
 
 #page{
-    background-color: rgb(134, 231, 240);
+    background:rgb(110, 138, 238);/*linear-gradient(to top, #0021f82b, #294ace);*/
     width: 40%;
     height: 95%;
     margin: 5px 5px 0px 5px;
+    padding: 10 10 10 10;
     position: absolute;
     top: 0px;
     left: 0px;
     border: 5px solid;
-    border-color: rgb(40, 215, 231);
+    border-color: rgb(107, 124, 199);
     border-radius: 10px;
     animation-duration: 1s;
     /*
     animation-name: slidein;*/
+}
+
+#close{
+    position: absolute;
+    top: 10;
+    right: 10;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
 }
 
 .cache {
@@ -39,4 +50,17 @@ body {
         visibility: visible;
         margin-left: 0%;
     }
+}
+
+p{
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: large;
+    line-height: 1.2em;
+}
+
+h1{
+    color: white;
+    font-size: 60px;
+    
 }

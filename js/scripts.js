@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import planeteTexture from "../img/planeteTexture.png";
+import gsap from "gsap";
 
 let container = document.getElementById("container");
 let page = document.getElementById("page");
@@ -85,6 +86,10 @@ renderer.setAnimationLoop(animate);
 
 function cacherPage() {
     page.style.display = 'none';
+    gsap.to(camera.position, {x: 0, duration:1});
+    setTimeout(() => {
+        container.addEventListener('click', afficherPage);
+    },"1000");
 }
 
 function afficherPage() {
@@ -93,4 +98,6 @@ function afficherPage() {
     page.style.animationName = 'none';
     void page.offsetWidth;
     page.style.animationName ="slidein";
+    gsap.to(camera.position, {x: -25, duration:1});
+    container.removeEventListener('click', afficherPage);
 }
