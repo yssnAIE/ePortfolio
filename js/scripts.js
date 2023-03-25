@@ -2,10 +2,30 @@ import * as THREE from "three";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 import planeteTexture from "../img/planeteTexture.png";
 import gsap from "gsap";
+import { pagePresentation } from "./pages.js";
 
 let container = document.getElementById("container");
 let page = document.getElementById("page");
 let closeBtn = document.getElementById("close");
+let leftBtn = document.getElementById("left");
+let rightBtn = document.getElementById("right");
+let contenue = document.getElementById("contenue");
+let titre = document.getElementById("titre");
+let indicePage = 1;
+
+rightBtn.addEventListener('click', ()=>{
+    if ( indicePage < pagePresentation.length-1) {
+        indicePage++;
+        addContenue(pagePresentation[indicePage]);
+    }
+})
+
+leftBtn.addEventListener('click', ()=>{
+    if ( indicePage > 1) {
+        indicePage--;
+        addContenue(pagePresentation[indicePage]);
+    }
+})
 
 
 page.style.display = 'none';
@@ -93,6 +113,8 @@ function cacherPage() {
 }
 
 function afficherPage() {
+    titre.innerHTML = pagePresentation[0];
+    addContenue(pagePresentation[1]);
     page.style.animationName ="slidein";
     page.style.display = 'block';
     page.style.animationName = 'none';
@@ -100,4 +122,8 @@ function afficherPage() {
     page.style.animationName ="slidein";
     gsap.to(camera.position, {x: -25, duration:1});
     container.removeEventListener('click', afficherPage);
+}
+
+function addContenue(liste) {
+    contenue.innerHTML = liste;
 }

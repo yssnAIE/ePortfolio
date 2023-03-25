@@ -5,12 +5,20 @@ body {
     background: linear-gradient(to top, #313659, #060b20);
 }
 
+body {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+  }
+  
+  body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
 
 
 #page{
     background:rgb(110, 138, 238);/*linear-gradient(to top, #0021f82b, #294ace);*/
     width: 40%;
-    height: 95%;
+    height: 94%;
     margin: 5px 5px 0px 5px;
     padding: 10 10 10 10;
     position: absolute;
@@ -20,14 +28,27 @@ body {
     border-color: rgb(107, 124, 199);
     border-radius: 10px;
     animation-duration: 1s;
-    /*
-    animation-name: slidein;*/
+    text-align: center;
 }
 
 #close{
     position: absolute;
     top: 10;
     right: 10;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+}
+
+#left {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+}
+
+#right {
     background-color: transparent;
     color: white;
     border: none;
@@ -64,3 +85,22 @@ h1{
     font-size: 60px;
     
 }
+
+#changePage{
+    gap:1em;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nbPage {
+    align-self: center; /* centre verticalement l'élément #nbPage */
+    margin: 0 10px; /* ajoute des marges pour espacer le texte des boutons */
+  }
